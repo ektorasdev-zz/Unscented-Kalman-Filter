@@ -103,6 +103,12 @@ void UKF::ProcessMeasurement(MeasurementPackage measurement_pack) {
             x_ << measurement_pack.raw_measurements_[0], measurement_pack.raw_measurements_[1], 0, 0, 0;
         }
 
+        P_ << 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1;
+
         // done initializing, no need to predict or update
         is_initialized_ = true;
         return;
